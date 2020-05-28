@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 28 Maj 2020, 06:52
+-- Czas generowania: 28 Maj 2020, 17:33
 -- Wersja serwera: 10.4.8-MariaDB
 -- Wersja PHP: 7.3.10
 
@@ -42,7 +42,12 @@ INSERT INTO `autor` (`id_autor`, `imie`, `nazwisko`) VALUES
 (1, 'Adam', 'Mickiewicz'),
 (2, 'Ignacy', 'Krasicki'),
 (3, 'Paulina', 'Świst'),
-(4, 'Wojciech', 'Chmielarz');
+(4, 'Wojciech', 'Chmielarz'),
+(43, 'Franek', 'Głowacki'),
+(44, 'Adam', 'Noga'),
+(45, 'Franek', 'asdfh'),
+(49, 'asdvzxc', 'asfzxv'),
+(50, 'dfbxczvbda', 'sdfxcvzz');
 
 -- --------------------------------------------------------
 
@@ -64,7 +69,12 @@ INSERT INTO `krzyzowa` (`id_krzyz`, `id_autor`, `id_tytul`) VALUES
 (1, 1, 2),
 (2, 2, 3),
 (3, 3, 4),
-(4, 4, 1);
+(4, 4, 1),
+(8, 43, 8),
+(9, 44, 9),
+(10, 45, 10),
+(14, 49, 14),
+(15, 50, 15);
 
 -- --------------------------------------------------------
 
@@ -86,7 +96,12 @@ INSERT INTO `tytul` (`id_tytul`, `tytul`, `isbn`) VALUES
 (1, 'Podpalacz', 979),
 (2, 'Dziady cz.3', 978),
 (3, 'Pijaństwo', 544),
-(4, 'Przekręt', 655);
+(4, 'Przekręt', 655),
+(8, 'asfdfv', 245),
+(9, 'asdvusxzciov', 245),
+(10, 'asdhlkh', 265),
+(14, 'asd', 532),
+(15, 'zsadfAS', 461);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -103,7 +118,8 @@ ALTER TABLE `autor`
 --
 ALTER TABLE `krzyzowa`
   ADD PRIMARY KEY (`id_krzyz`) USING BTREE,
-  ADD KEY `id_autor` (`id_autor`);
+  ADD KEY `id_autor` (`id_autor`),
+  ADD KEY `id_tytul` (`id_tytul`);
 
 --
 -- Indeksy dla tabeli `tytul`
@@ -119,19 +135,19 @@ ALTER TABLE `tytul`
 -- AUTO_INCREMENT dla tabeli `autor`
 --
 ALTER TABLE `autor`
-  MODIFY `id_autor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id_autor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT dla tabeli `krzyzowa`
 --
 ALTER TABLE `krzyzowa`
-  MODIFY `id_krzyz` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_krzyz` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT dla tabeli `tytul`
 --
 ALTER TABLE `tytul`
-  MODIFY `id_tytul` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_tytul` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Ograniczenia dla zrzutów tabel
@@ -141,7 +157,8 @@ ALTER TABLE `tytul`
 -- Ograniczenia dla tabeli `krzyzowa`
 --
 ALTER TABLE `krzyzowa`
-  ADD CONSTRAINT `krzyzowa_ibfk_1` FOREIGN KEY (`id_autor`) REFERENCES `autor` (`id_autor`);
+  ADD CONSTRAINT `krzyzowa_ibfk_1` FOREIGN KEY (`id_autor`) REFERENCES `autor` (`id_autor`),
+  ADD CONSTRAINT `krzyzowa_ibfk_2` FOREIGN KEY (`id_tytul`) REFERENCES `tytul` (`id_tytul`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
