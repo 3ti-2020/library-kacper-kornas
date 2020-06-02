@@ -1,0 +1,35 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.grid-container {
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    background: green;
+}
+
+
+.box1 {
+    grid-row: 1 / 5;
+    grid-column: 1 / 9;
+}
+
+
+.box2 {
+    grid-row: 5 / 9;
+    grid-column: 1 / 9;
+}
+
+.img {
+    position: relative;
+    left: 550px;
+}
+
+.s1 {
+    position: relative;
+    left: 850px;
+}
