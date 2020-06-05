@@ -1,0 +1,47 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+
+.container {
+    height: 200vh;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.intro {
+    height: 50%;
+    width: 100%;
+    background-image: url(https://www.publicdomainpictures.net/pictures/270000/velka/sunset-picture.jpg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    padding: 25px;
+    flex-wrap: wrap;
+}
+
+.text {
+    opacity: 0;
+    transform: translateX(150px);
+    transition: 1s all ease-out;
+}
+
+.text-appear {
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+.img {
+    width: 100%;
+}
+
+
